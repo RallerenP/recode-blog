@@ -1,0 +1,29 @@
+INSERT INTO USER VALUES (0, 'RallerenP@RallerenP.dk',  '1234', 0, 'RallerenP' );
+INSERT INTO USER VALUES (1, 'RallerenP@RallearenP.dk',  '1234', 0, 'bob' );
+INSERT INTO USER VALUES (2, 'RallerenP@RalleraaenP.dk',  '1234', 0, 'Testo' );
+INSERT INTO USER VALUES (3, 'none@none.dk', '1234', 0, 'Gæst' );
+
+INSERT INTO POST VALUES (0, 'THis is a test post',  'First Test Post', 0);
+INSERT INTO POST VALUES (1, 'Dummy Data Post',  'Second Test Post', 1);
+INSERT INTO POST VALUES (2, 'Simple Post',  'Third Test Post', 1);
+INSERT INTO POST VALUES (3, 'Simple Post',  'Third Test Post', 3);
+
+INSERT INTO TAG VALUES (0, 'Dummy Tag 1');
+INSERT INTO TAG VALUES (1, 'Dummy Tag 2');
+INSERT INTO TAG VALUES (2, 'Dummy Tag 3');
+INSERT INTO TAG VALUES (3, 'Dummy Tag 4');
+
+INSERT INTO POST_TAGS VALUES (0, 0);
+INSERT INTO POST_TAGS VALUES (0, 1);
+INSERT INTO POST_TAGS VALUES (0, 2);
+
+INSERT INTO POST_TAGS VALUES (1, 2);
+INSERT INTO POST_TAGS VALUES (1, 1);
+
+INSERT INTO POST_TAGS VALUES (2, 0);
+
+INSERT INTO POST_TAGS VALUES (1, 0);
+INSERT INTO POST_TAGS VALUES (2, 1);
+INSERT INTO POST_TAGS VALUES (3, 2);
+
+

@@ -1,0 +1,59 @@
+<div class="modal fade" id="signupModal" tabindex="-1" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Signup</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col">
+                            <label for="usernameSignupInput">Username</label>
+                            <input type="text" class="form-control" id="usernameSignupInput">
+                        </div>
+                        <div class="form-group col">
+                            <label for="emailSignupInput">Email</label>
+                            <input type="text" class="form-control" id="emailSignupInput">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passwordSignupInput">Password</label>
+                        <input id="passwordSignupInput" type="password" class="form-control" >
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="signupBtn" type="button" class="btn btn-primary">Sign up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(() => {
+        $('#signupBtn').click(() => {
+            const username = $("#usernameSignupInput").val();
+            const email = $("#emailSignupInput").val();
+            const password = $("#passwordSignupInput").val();
+
+            const data = { username, email, password };
+
+            $.ajax(`/api/users/`, {
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                success: (e) => {
+                    $('#signupModal').modal('hide');
+                },
+                error: (e) => {
+                    console.error(e)
+                }
+            })
+        })
+    })
+</script>

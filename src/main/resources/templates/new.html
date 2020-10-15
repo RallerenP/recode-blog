@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="da">
+<head th:insert="fragments/head.html">
+
+</head>
+<body>
+<th:block th:replace="fragments/modals/login.html"></th:block>
+<th:block th:replace="fragments/modals/signup.html"></th:block>
+<div class="container-fluid w-75 ">
+    <th:block th:replace="fragments/header.html"></th:block>
+    <div class="container">
+        <div class="form-group">
+            <label for="newPostTitle">New Post Title</label>
+            <input type="text" class="form-control" id="newPostTitle">
+        </div>
+        <div class="form-group">
+            <label for="newPostContent">Content</label>
+            <textarea class="form-control" id="newPostContent"></textarea>
+        </div>
+        <button class="btn btn-primary" id="submitBtn">Submit</button>
+    </div>
+
+    <script>
+        $(document).ready(() => {
+            $('#submitBtn').click(() => {
+                const data = { title: $('#newPostTitle').val(), authorId: 3, content: $('#newPostContent').val()}
+                $.ajax(`/api/posts/`, {
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(data),
+                    success: (e) => {
+                        window.location = "/";
+                    },
+                    error: (e) => {
+                        console.error(e)
+                    }
+                })
+            })
+        });
+    </script>
+</div>
+</body>
+</html>

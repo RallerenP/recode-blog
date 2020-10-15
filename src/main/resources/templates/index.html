@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="da">
+    <head th:insert="fragments/head.html">
+
+    </head>
+    <body>
+        <th:block th:replace="fragments/modals/login.html"></th:block>
+        <th:block th:replace="fragments/modals/signup.html"></th:block>
+        <div class="container-fluid w-75 ">
+            <th:block th:replace="fragments/header.html"></th:block>
+
+            <a href="/new" class="btn btn-primary">
+                New Post
+            </a>
+            <th:block th:each="post : ${posts}">
+
+                <div class="media" style="margin: 16px;">
+                    <div class="media-body">
+                        <h3><span th:text="${post.title}"></span></h3>
+                        <h5><span th:text="${post.author.username}"></span></h5>
+                        <span th:text="${post.content}"></span>
+                        <div>
+                            <th:block th:each="tag : ${post.tags}">
+                                <span class="font-italic" th:text="${tag.getName()}"></span>,
+                            </th:block>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </body>
+</html>
